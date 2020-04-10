@@ -6,6 +6,7 @@ export default class House extends Component{
         return(
             <div>
                 House
+                <button>Delete</button>
             </div>
         )
     }

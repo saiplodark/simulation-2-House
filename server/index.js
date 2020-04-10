@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
+const dah = require('../src/Components/Dashboard')
+
 
 const PORT = 6352
 
@@ -21,5 +23,9 @@ massive(CONNECTION_STRING).then(db=>{
 
 //     })
 // )
+
+app.get('/api/houselists' , dash.getHouse)
+app.post('/api/addhouse')
+app.delete('/api/deletehouses')
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

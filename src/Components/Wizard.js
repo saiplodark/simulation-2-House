@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 
 export default class Wizards extends Component{
@@ -17,9 +18,18 @@ export default class Wizards extends Component{
 
     changeHandler(e){
         this.setState({
-          [e.target.name]: e.target.value
+          newhouses: e.target.value
         })
       }
+
+    addhouse(){
+        axios.post('/api/addhouse')
+        .then(res=>{
+            this.setState({
+                newhouses:[]
+            })
+        })
+    }
     
     
     render(){
